@@ -35,17 +35,17 @@
         var: new_change_request
 
     #https://www.infinitypp.com/ansible/email-notifications-with-examples/
-    - name: Sending an email requesting approval
-      community.general.mail:
-        host: smtp.gmail.com
-        port: 587
-        username: "{{ gmail_username }}"
-        password: "{{ gmail_password }}"
-        to:
-        - "{{ primary_approver }}"
-        - "{{ secondary_approver }}"
-        subject: "Approval request for ServiceNow Change Request {{ new_change_request.record.number }}"
-        body: "You have a new CR Approval request. Please click on this URL to approve: https://{{ SN_INSTANCE }}.service-now.com/nav_to.do?uri=change_request.do?sysparm_query=number={{ new_change_request.record.number }}"
+    #- name: Sending an email requesting approval
+#      community.general.mail:
+ #       host: smtp.gmail.com
+  #      port: 587
+   #     username: "{{ gmail_username }}"
+    #    password: "{{ gmail_password }}"
+     #   to:
+      #  - "{{ primary_approver }}"
+#        - "{{ secondary_approver }}"
+ #       subject: "Approval request for ServiceNow Change Request {{ new_change_request.record.number }}"
+  #      body: "You have a new CR Approval request. Please click on this URL to approve: https://{{ SN_INSTANCE }}.service-now.com/nav_to.do?uri=change_request.do?sysparm_query=number={{ new_change_request.record.number }}"
 
     - name: Wait for Change Request approval
       servicenow.itsm.change_request_info:
